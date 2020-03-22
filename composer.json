@@ -1,0 +1,26 @@
+{
+    "name": "quill/seoscore",
+    "description": "",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gien Mangaliman",
+            "email": "gien.mangaliman@summitmedia.com.ph"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Quill\\SeoScore\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Quill\\SeoScore\\SeoScoreServiceProvider"
+            ]
+        }
+    }
+}
