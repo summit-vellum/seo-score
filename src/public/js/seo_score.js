@@ -5,7 +5,8 @@ var generateSeoScore = function(origin) {
 	contentWordCount, seoTotalScore, seoScoreBreakdown = '',
 	total = 0,
 	totalBreakdown = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0, 8:0, 9:0, 10:0},
-	powerWordUsage = '/power-words/check-usage';
+	powerWordUsage = '/power-words/check-usage',
+	totalScore = $('[seo-total-score]');
 
 	if (origin == 'modal') {
 		keyword = $('#seo_keyword', window.parent.document).val().trim();
@@ -56,6 +57,8 @@ var generateSeoScore = function(origin) {
 			$('[seo-total-score]').text(total);
 			seoTotalScore.val(total);
 			seoScoreBreakdown.val(JSON.stringify(totalBreakdown));
+
+			updateSeoTotalScoreColor(total, totalScore);
 		}
 	});
 
@@ -137,9 +140,13 @@ var generateSeoScore = function(origin) {
         	}
 	}
 
-	var totalScore = $('[seo-total-score]');
 	totalScore.text(total);
+	updateSeoTotalScoreColor(total, totalScore);
+	seoTotalScore.val(total);
+	seoScoreBreakdown.val(JSON.stringify(totalBreakdown));
+}
 
+function updateSeoTotalScoreColor(total, totalScore){
 	if (total >= 60) {
 		totalScore.css('color', 'green');
 	} else if (total < 60) {
@@ -147,8 +154,6 @@ var generateSeoScore = function(origin) {
 	} else {
 		totalScore.removeAttr('style');
 	}
-	seoTotalScore.val(total);
-	seoScoreBreakdown.val(JSON.stringify(totalBreakdown));
 }
 
 
