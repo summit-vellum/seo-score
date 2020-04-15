@@ -137,7 +137,16 @@ var generateSeoScore = function(origin) {
         	}
 	}
 
-	$('[seo-total-score]').text(total);
+	var totalScore = $('[seo-total-score]');
+	totalScore.text(total);
+
+	if (total >= 60) {
+		totalScore.css('color', 'green');
+	} else if (total < 60) {
+		totalScore.css('color', 'red');
+	} else {
+		totalScore.removeAttr('style');
+	}
 	seoTotalScore.val(total);
 	seoScoreBreakdown.val(JSON.stringify(totalBreakdown));
 }
