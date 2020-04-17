@@ -86,14 +86,6 @@
 		generateSeoScore('modal');
 	});
 
-	 $('[close-modal]').click(function(){
-	 	removeModalSrc();
-	 });
-
-	 $('#toolModal', window.parent.document).click(function(){
-	 	removeModalSrc();
-	 });
-
 </script>
 @endpush
 
